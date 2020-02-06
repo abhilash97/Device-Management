@@ -40,15 +40,6 @@ public class AppConfigure {
                 .securitySchemes(newArrayList(new ApiKey("Authorization-Key", "Authorization", "header")))
                 .securityContexts(securityContexts).select().build();
     }
-//    private SecurityContext securityContext() {
-//        return SecurityContext.builder().securityReferences(defaultAuth()).forPaths(PathSelectors.regex("/.*")).build();
-//    }
-//    private List<SecurityReference> defaultAuth() {
-//        final AuthorizationScope authorizationScope = new AuthorizationScope("global", "accessEverything");
-//        final AuthorizationScope[] authorizationScopes = new AuthorizationScope[]{authorizationScope};
-//        return Collections.singletonList(new SecurityReference("API_KEY", authorizationScopes));
-//    }
-
     @Bean
     public SecurityConfiguration security() {
         return new springfox.documentation.swagger.web.SecurityConfiguration(

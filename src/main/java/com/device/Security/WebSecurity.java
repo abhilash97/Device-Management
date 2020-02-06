@@ -38,7 +38,7 @@ public class WebSecurity extends WebSecurityConfigurerAdapter {
                 "/configuration/security",
                 "/swagger-ui.html",
                 "/webjars/**").permitAll();
-        http.authorizeRequests().antMatchers("/user").permitAll();
+        http.authorizeRequests().antMatchers("/user/insertuser").permitAll();
         http.authorizeRequests().antMatchers("/authenticate").permitAll().anyRequest().authenticated()
         .and().sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
         //http.addFilter(new AuthenticationFilter(authenticationManager()));
