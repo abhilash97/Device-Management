@@ -103,7 +103,7 @@
                     <apiSource>
                         <springmvc>true</springmvc>
                         <locations>
-                            <location>com.vmware.controller</location>
+                            <location>com.device.controller</location>
                             <location>Controller</location>
                         </locations>
                         <schemes>
