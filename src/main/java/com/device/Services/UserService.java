@@ -109,7 +109,6 @@ public class UserService implements UserRepository {
         for (User usr: usrlist) {
             lmap.put("ID:"+usr.getUsrid()+" "+usr.getName(), dsv.devicesPerUser(usr.getUsrid()).get(usr.getUsrid()));
         }
-        LinkedHashMap<String, Integer> lhs = new LinkedHashMap<String, Integer>();
         ArrayList<String> ls=new ArrayList<String>();
         lmap.entrySet()
                 .stream()
