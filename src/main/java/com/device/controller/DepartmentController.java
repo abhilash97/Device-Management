@@ -20,6 +20,7 @@ public class DepartmentController {
     @Autowired
     private DepartmentService dep;
 
+    /** insert a new department*/
     @PostMapping("/insertdept")
     @ApiOperation(value = "INSERT DEPT", responseContainer = "List", response = Devices.class)
     @ApiResponses(value = {@ApiResponse(code = 200,message = "Success"),@ApiResponse(code=404,message = "Failed")})
@@ -27,6 +28,7 @@ public class DepartmentController {
         return dep.insertDept(dept);
     }
 
+    /** update a department*/
     @PutMapping("/updatedept")
     @ApiOperation(value = "UPDATE DEPT", responseContainer = "List", response = Devices.class)
     @ApiResponses(value = {@ApiResponse(code = 200,message = "Success"),@ApiResponse(code=404,message = "Failed")})
@@ -34,6 +36,7 @@ public class DepartmentController {
         return dep.updateDept(dept);
     }
 
+    /** display all departments*/
     @GetMapping("/getdept")
     @ApiOperation(value = "GET DEPT", responseContainer = "List", response = Devices.class)
     @ApiResponses(value = {@ApiResponse(code = 200,message = "Success"),@ApiResponse(code=404,message = "Failed")})
@@ -41,6 +44,7 @@ public class DepartmentController {
         return dep.getDept();
     }
 
+    /** delete a department*/
     @PostMapping("/deletedept")
     @ApiOperation(value = "DELETE DEPT", responseContainer = "List", response = Devices.class)
     @ApiResponses(value = {@ApiResponse(code = 200,message = "Success"),@ApiResponse(code=404,message = "Failed")})

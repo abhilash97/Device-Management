@@ -24,6 +24,7 @@ public class UserController {
     @Autowired
     private UserService usv;
 
+    /** Display all users*/
     @GetMapping("/allusers")
     @ApiOperation(value = "getAllUsers",responseContainer = "List",response = User.class)
     @ApiResponses(value={@ApiResponse(code=200,message = "Success"),
@@ -32,6 +33,7 @@ public class UserController {
         return usv.getAllUsers();
     }
 
+    /** Update user having user id-idx*/
     @PutMapping("/updateuser")
     @ApiOperation(value = "UPDATE USER",responseContainer = "List",response = User.class)
     @ApiResponses(value={@ApiResponse(code=200,message = "Success"),
@@ -40,6 +42,7 @@ public class UserController {
         return usv.updateUser(usr,idx);
     }
 
+    /** update username of user*/
     @PutMapping("/updateusername")
     @ApiOperation(value = "UPDATE USERNAME",responseContainer = "List",response = User.class)
     @ApiResponses(value={@ApiResponse(code=200,message = "Success"),
@@ -48,6 +51,7 @@ public class UserController {
         return usv.updateUsername(usr.getUsrid(),usr.getUsername());
     }
 
+    /**update password of user*/
     @PutMapping("/updatepassword")
     @ApiOperation(value = "UPDATE PASSWORD",responseContainer = "List",response = User.class)
     @ApiResponses(value={@ApiResponse(code=200,message = "Success"),
@@ -56,6 +60,7 @@ public class UserController {
         return usv.updateUsername(usr.getUsrid(),usr.getPassword());
     }
 
+    /**delete a user*/
     @DeleteMapping("/deleteuser")
     @ApiOperation(value = "DELETE USER",responseContainer = "List",response = User.class)
     @ApiResponses(value={@ApiResponse(code=200,message = "Success"),
@@ -64,6 +69,7 @@ public class UserController {
         return usv.deleteUser(idx);
     }
 
+    /**create a new user*/
     @PostMapping("/insertuser")
     @ApiOperation(value = "INSERT USER",responseContainer = "List",response = User.class)
     @ApiResponses(value={@ApiResponse(code=200,message = "Success"),
@@ -72,6 +78,7 @@ public class UserController {
         return usv.insertUser(usr);
     }
 
+    /**get all users in a department*/
     @GetMapping("/userperdept")
     @ApiOperation(value = "getUsersPerDepartment",responseContainer = "List",response = User.class)
     @ApiResponses(value={@ApiResponse(code=200,message = "Success"),
@@ -80,6 +87,7 @@ public class UserController {
         return usv.userPerDept(dept.getDeptname());
     }
 
+    /**get top N users in a department having highest number of devices*/
     @PostMapping("/topnusersperdept")
     @ApiOperation(value = "top N users",responseContainer = "List",response = User.class)
     @ApiResponses(value={@ApiResponse(code=200,message = "Success"),

@@ -21,10 +21,6 @@ public class UserService implements UserRepository {
     private DeviceService dsv;
 
     public UserObject autoTemplate(int id){
-//        String sql2 = "SELECT * FROM usercreds WHERE usrid=?";
-//        UserObject uobj = jdbc.queryForObject(sql2,new Object[]{id},
-//                (rj,rnum)->new UserObject(rj.getInt("usrid"),rj.getString("username")
-//                        , rj.getString("password")));
         return new UserObject(id,"***","***");
     }
 
@@ -35,8 +31,6 @@ public class UserService implements UserRepository {
         return jdbc.query(sql,(rs, rowNum)->new User(rs.getInt("usrid"),rs.getString("name"),
                     rs.getString("deptname"),rs.getTimestamp("datetimez"),
                 autoTemplate(rs.getInt("usrid"))));
-//                ,autoTemplate(rs.getInt("usrid")),
-//                "***"));
     }
 
     @Override

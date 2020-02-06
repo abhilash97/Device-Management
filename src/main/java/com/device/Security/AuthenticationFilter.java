@@ -24,10 +24,6 @@ public class AuthenticationFilter extends OncePerRequestFilter {
 
     @Autowired
     private MyUserDetailService msd;
-//
-//    public AuthenticationFilter(AuthenticationManager authenticationManager) {
-//        //super();
-//    }
 
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain chain) throws IOException, ServletException {

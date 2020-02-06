@@ -21,6 +21,7 @@ public class DeviceController {
     @Autowired
     private DeviceService dev;
 
+    /** create a new device*/
     @PostMapping("/insertdevice")
     @ApiOperation(value = "INSERT DEVICE", responseContainer = "List", response = Devices.class)
     @ApiResponses(value = {@ApiResponse(code = 200,message = "Success"),@ApiResponse(code=404,message = "Failed")})
@@ -28,6 +29,7 @@ public class DeviceController {
         return dev.insertDevice(device);
     }
 
+    /** update a device*/
     @PutMapping("/updatedevices")
     @ApiOperation(value = "UPDATE DEVICE", responseContainer = "List", response = Devices.class)
     @ApiResponses(value = {@ApiResponse(code = 200,message = "Success"),@ApiResponse(code=404,message = "Failed")})
@@ -35,6 +37,7 @@ public class DeviceController {
         return dev.updateDevice(idx,device);
     }
 
+    /** display all devices*/
     @GetMapping("/getdevices")
     @ApiOperation(value = "GET DEVICE", responseContainer = "List", response = Devices.class)
     @ApiResponses(value = {@ApiResponse(code = 200,message = "Success"),@ApiResponse(code=404,message = "Failed")})
@@ -42,6 +45,7 @@ public class DeviceController {
         return dev.getDevices();
     }
 
+    /** display no of devices assigned to a user*/
     @GetMapping("/deviceperuser")
     @ApiOperation(value = "DEVICE PER USER", responseContainer = "List", response = Devices.class)
     @ApiResponses(value = {@ApiResponse(code = 200,message = "Success"),@ApiResponse(code=404,message = "Failed")})
@@ -49,6 +53,7 @@ public class DeviceController {
         return dev.devicesPerUser(idx);
     }
 
+    /** display total no. of devices assigned to users of a department*/
     @GetMapping("/deviceperdept")
     @ApiOperation(value = "DEVICE PER DEPT", responseContainer = "List", response = Devices.class)
     @ApiResponses(value = {@ApiResponse(code = 200,message = "Success"),@ApiResponse(code=404,message = "Failed")})
@@ -56,6 +61,7 @@ public class DeviceController {
         return dev.devicesPerDept(dept.getDeptname());
     }
 
+    /** display a device's assignment history-list of user(s) it was/is assigned*/
     @GetMapping("/devicehistory")
     @ApiOperation(value = "DEVICE HISTORY", responseContainer = "List", response = Devices.class)
     @ApiResponses(value = {@ApiResponse(code = 200,message = "Success"),@ApiResponse(code=404,message = "Failed")})
@@ -63,6 +69,7 @@ public class DeviceController {
         return dev.getDeviceHistory(devid);
     }
 
+    /** assign a device to a user*/
     @PutMapping("/assigndevice")
     @ApiOperation(value = "ASSIGN DEVICE", responseContainer = "List", response = Devices.class)
     @ApiResponses(value = {@ApiResponse(code = 200,message = "Success"),@ApiResponse(code=404,message = "Failed")})
@@ -70,6 +77,7 @@ public class DeviceController {
         return dev.assign(usrid,devid);
     }
 
+    /** unassign device from a user*/
     @PutMapping("/unassigndevice")
     @ApiOperation(value = "UNASSIGN DEVICE", responseContainer = "List", response = Devices.class)
     @ApiResponses(value = {@ApiResponse(code = 200,message = "Success"),@ApiResponse(code=404,message = "Failed")})
@@ -77,6 +85,7 @@ public class DeviceController {
         return dev.unAssign(usrid,devid);
     }
 
+    /** display all the user-device assignments - which device is assigned to which user*/
     @GetMapping("/getdeviceassigns")
     @ApiOperation(value = "GET DEVICE ASSIGNS", responseContainer = "List", response = Devices.class)
     @ApiResponses(value = {@ApiResponse(code = 200,message = "Success"),@ApiResponse(code=404,message = "Failed")})
