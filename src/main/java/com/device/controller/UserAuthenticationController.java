@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @ComponentScan(basePackages = {"com.device.*"})
-//@RequestMapping("/login")
 public class UserAuthenticationController {
 
     @Autowired

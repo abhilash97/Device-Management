@@ -25,7 +25,8 @@ public class User {
     public User(){
 
     }
-//    public User(int usrid, String name, String deptname, Timestamp datetimez, UserObject creds){
+
+ //    public User(int usrid, String name, String deptname, Timestamp datetimez, UserObject creds){
 //        this.usrid=usrid;
 //        this.name=name;
 //        this.deptname=deptname;
@@ -48,5 +49,6 @@ public class User {
     public UserObject getCredentials(){
         return credentials;
     }
+
 }
 
